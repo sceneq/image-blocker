@@ -1,0 +1,26 @@
+[
+  {
+    "index": 0,
+    "alt": "red",
+    "status": "done",
+    "opacity": "0.7"
+  },
+  {
+    "index": 1,
+    "alt": "green",
+    "status": "done",
+    "opacity": "0.7"
+  },
+  {
+    "index": 2,
+    "alt": "blue",
+    "status": "done",
+    "opacity": "0.7"
+  },
+  {
+    "index": 3,
+    "alt": "gray-small",
+    "status": null,
+    "opacity": null
+  }
+]

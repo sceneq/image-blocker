@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "画像分類フィルタ",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "image-blocker@localhost",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"],
+        "optional": []
+      }
+    }
+  },
+  "description": "ONNX/TF.js画像分類モデルでサイトごとに画像フィルタリングを行うブラウザ拡張機能",
+  "version": "0.1.1",
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "web_accessible_resources": [{ "matches": ["<all_urls>"], "resources": ["wasm/*"] }],
+  "icons": { "48": "icon/48.png", "96": "icon/96.png", "128": "icon/128.png" },
+  "background": { "scripts": ["background.js"] },
+  "action": { "default_popup": "popup.html", "default_title": "画像分類フィルタ" },
+  "content_scripts": [{ "matches": ["<all_urls>"], "js": ["content.js"] }],
+  "options_ui": { "page": "options.html", "open_in_tab": true }
+}

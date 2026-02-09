@@ -1,0 +1,39 @@
+{
+  "name": "image-blocker",
+  "description": "Browser extension that filters images per-site using ONNX/TF.js classification models",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "scripts": {
+    "build": "vite build && node scripts/build-scripts.mjs && web-ext build -o",
+    "build:dev": "vite build && node scripts/build-scripts.mjs --dev && web-ext build -o",
+    "build:chrome": "vite build && node scripts/build-scripts.mjs --chrome",
+    "build:chrome:dev": "vite build && node scripts/build-scripts.mjs --dev --chrome",
+    "compile": "tsc --noEmit",
+    "test:e2e": "npm run build:dev && node test/generate-fixtures.mjs && npx playwright test",
+    "test:e2e:update": "npm run build:dev && node test/generate-fixtures.mjs && npx playwright test --update-snapshots",
+    "lint": "addons-linter --output json --pretty artifacts/image-blocker-%npm_package_version%.zip | wsl.exe fish -c 'jq -r .errors'"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgpu": "^4.22.0",
+    "addons-linter": "^9.8.0",
+    "fflate": "^0.8.2",
+    "onnxruntime-web": "^1.24.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "web-ext": "^9.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "@types/webextension-polyfill": "^0.10.7",
+    "@vitejs/plugin-react": "^4.5.0",
+    "esbuild": "^0.25.0",
+    "playwright-webextext": "^0.0.3",
+    "serve": "^14.2.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.3.5"
+  }
+}

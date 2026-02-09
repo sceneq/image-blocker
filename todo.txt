@@ -1,0 +1,6 @@
+[ ] css background-image
+[ ] video, picture, canvas
+[ ] configのexport/import
+[ ] https://jax-js.com/mnist のようにブラウザで特訓させてONNX吐き出す機能
+[ ] Chrome CORS fetchでcache要求できる？canvas
+[ ] Android版Firefoxで使っていると徐々に重くなる
